@@ -1,0 +1,6 @@
+---
+- hosts: all
+  vars:
+   - glassfish_user: "vagrant"
+  roles:
+    - ansible-role-glassfish
