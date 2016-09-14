@@ -1,4 +1,10 @@
 ---
+- name: installing unzip
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - unzip
 - name: Download glassfish
   get_url:
     url: "{{ glassfish_mirror }}/{{ glassfish_redis_filename }}"
