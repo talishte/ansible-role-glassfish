@@ -8,7 +8,7 @@ glassfish_product: "payara41"
 
 # Mirror to download the Glassfish/Payara redistributable package from
 
-glassfish_mirror: "https://s3-eu-west-1.amazonaws.com/payara.co/Payara+Downloads/Payara+{{ glassfish_version }}"
+glassfish_mirror: "https://search.maven.org/remotecontent?filepath=fish/payara/blue/distributions/payara/{{ glassfish_version }}"
 
 # Base installation directory the Glassfish/Payara distribution
 glassfish_install_dir: /opt/glassfish
