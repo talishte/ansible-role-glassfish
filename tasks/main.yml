@@ -9,7 +9,7 @@
   get_url:
     url: "{{ glassfish_mirror }}/{{ glassfish_redis_filename }}"
     dest: "{{ glassfish_download_dir }}/{{ glassfish_redis_filename }}"
-    mode: 'u=rw,go=r'
+    mode: 0644
     timeout: 1000
 - name: create Glassfish installation directory
   become: yes
@@ -17,7 +17,7 @@
     state: directory
     owner: root
     group: root
-    mode: 'u=rwx,go=rx'
+    mode: 0755
     dest: "{{ glassfish_install_dir }}"
 - name: install Glassfish
   become: yes
@@ -27,7 +27,7 @@
     copy: false
     owner: root
     group: root
-    mode: 'u=rwx,go=rx'
+    mode: 0755  
 - name: Add asadmin to {{ glassfish_user }} bashrc
   lineinfile: dest=/home/{{ glassfish_user }}/.bashrc 
        line='export PATH={{ glassfish_install_dir}}/{{ glassfish_product }}/bin:$PATH' 
@@ -62,4 +62,4 @@
     state=absent
 - name: Removing Glassfish/Payara file
   file: path="{{ glassfish_download_dir }}/{{ glassfish_redis_filename }}"
-   state=absent
+    state=absent
